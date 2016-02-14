@@ -182,7 +182,7 @@
 
 
 	<section class="slide"><div>
-		<h2>Конец строки строки</h2>
+		<h2>Конец строки</h2>
 		<p>Определяется спецсимволом <b>$</b></p>
 		<table>
 			<tr>
@@ -203,6 +203,148 @@
 			</tr>
 		</table>
 	</div></section>
+
+	<section class="slide"><div>
+		<h2>Сокращенные квантификаторы</h2>
+		<p>Определяется спецсимволами <b>*</b>, <b>+</b>, <b>?</b></p>
+		<table>
+			<tr>
+				<th>Шаблон</th>
+				<th>Квантификатор</th>
+				<th>Match</th>
+			</tr>
+			<tr>
+				<td>к<span style="color: #4B86C2;">(о&nbsp;|&nbsp;и)*</span>т</td>
+				<td>{0,}</td>
+				<td>соответствует кт, кот, кит, коооот и т.д.</td>
+			</tr>
+			<tr>
+				<td>к<span style="color: #4B86C2;">(о&nbsp;|&nbsp;и)+</span>т</td>
+				<td>{1,}</td>
+				<td>соответствует кот, кит, коооот и т.д.</td>
+			</tr>
+			<tr>
+				<td>к<span style="color: #4B86C2;">(о&nbsp;|&nbsp;и)?</span>т</td>
+				<td>{0,1}</td>
+				<td>соответствует кт, кот, кит</td>
+			</tr>
+		</table>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Подмножества символов и диапазоны</h2>
+		<p>Начало и конец набора подмножества определяется символами <b>[</b> и <b>]</b></p>
+		<table>
+			<tr>
+				<td>к<span style="color: #4B86C2;">[ои]</span>т</td>
+				<td>к<span style="color: #4B86C2;">(о&nbsp;|&nbsp;и)</span>т</td>
+				<td>кот<span style="color: #4B86C2;">[0-9]</span></td>
+			</tr>
+			<tr>
+				<td>
+					<span style="color: #4B86C2;">кот</span>овый
+					<br />
+					<span style="color: #4B86C2;">кит</span>овый
+				</td>
+				<td>
+					<span style="color: #4B86C2;">кот</span>овый
+					<br />
+					<span style="color: #4B86C2;">кит</span>овый
+				</td>
+				<td>
+					кот<span style="color: #4B86C2;">1</span>321
+					<br />
+					кот<span style="color: #4B86C2;">2</span>321<br />
+					...
+				</td>
+			</tr>
+		</table>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Исключение из подмножества символов</h2>
+		<p>Определяется символом <b>^</b> в начале подмножества</p>
+		<table>
+			<tr>
+				<td>к<span style="color: #4B86C2;">[^и]</span>т</td>
+				<td>кот<span style="color: #4B86C2;">[^0-9]</span></td>
+			</tr>
+			<tr>
+				<td>
+					<span style="color: #4B86C2;">кот</span>овый
+					<br />
+					китовый<br />
+					<span style="color: #4B86C2;">кот</span>123212
+				</td>
+				<td>
+					<span style="color: #4B86C2;">кот</span>овый <br />
+					кот1<br />
+					кот123212
+				</td>
+			</tr>
+		</table>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Позитивный и негативный<br /> просмотр вперед</h2>
+		<p>используется совместно с группировкой</p>
+		<table>
+			<tr>
+				<td>баба и <span style="color: #4B86C2;">(?=кiт)</span></td>
+				<td>баба и <span style="color: #4B86C2;">(?!кiт)</span></td>
+			</tr>
+			<tr>
+				<td>
+					<span style="color: #4B86C2;">баба и</span> кiт<br />
+					баба и кооооооот<br />
+					баба и кот
+				</td>
+				<td>
+					баба и кiт<br />
+					<span style="color: #4B86C2;">баба и</span> кооооооот<br />
+					<span style="color: #4B86C2;">баба и</span> кот
+				</td>
+			</tr>
+		</table>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Важно!</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>заглядывание вперед не учитывается</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Позитивный и негативный<br /> просмотр назад</h2>
+		<p>используется совместно с группировкой</p>
+		<table>
+			<tr>
+				<td>(?&lt;=баба) и кiт</td>
+				<td>(?&lt;!баба) и кiт</td>
+			</tr>
+			<tr>
+				<td>
+					баба<span style="color: #4B86C2;"> и кiт</span><br />
+					дед и кот<br />
+					дед и кiт<br />
+				</td>
+				<td>
+					баба и кiт<br />
+					дед и кот<br />
+					дед<span style="color: #4B86C2;"> и кiт</span><br />
+				</td>
+			</tr>
+		</table>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>заглядывание назад не учитывается</h2>
+	</div></section>
+
+
+
 
 
 
