@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>regex-adventure</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="styles/screen.css">
+</head>
+<body class="list">
+	<!--
+		Debug class on <body> enables
+		cyan grid on slides
+		-->
+	<header class="caption">
+		<h1>regex-adventure</h1>
+	</header>
+
+	<section class="slide shout"><div>
+		<h2>Регулярные выражения</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Система обработки текста</h2>
+	</div></section>
+
+    <section class="slide shout"><div>
+		<center style="margin: -5% 0 0 0;">
+			<img src="images/Ken_Thompson_02.jpg" width="55%">
+		</center>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>в 1960-х<br />Кен Томпсон</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Современное применение</h2>
+		<ul>
+			<li>консольные утилиты Unix и др.</li>
+			<li>работа со строками в языках программирования</li>
+			<li>работа с текстом в текстовых редакторах и IDE</li>
+			<li>"стандарт" для описания поискового шаблона</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Pattern/шаблон</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>кот</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2><span style="color: #4B86C2;">кот</span>лета</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>не<span style="color: #4B86C2;">кот</span>орым</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>терра<span style="color: #4B86C2;">кот</span>овый</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Базовые понятия</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Базовые понятия</h2>
+		<ul>
+			<li>перечисление</li>
+			<li>группировка, объединение</li>
+			<li>квантификация</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Перечисление</h2>
+		<p>Определяется символом <b>|</b> означающим "или", например:</p>
+		<table>
+			<tr>
+				<td>кот<span style="color: #4B86C2;">&nbsp;|&nbsp;</span>кит</td>
+			</tr>
+			<tr>
+				<td>
+					<span style="color: #4B86C2;">кот</span>овый
+					<br />
+					<span style="color: #4B86C2;">кит</span>овый
+				</td>
+			</tr>
+		</table>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Группировка</h2>
+		<p>Определяется символами <b>(</b> и <b>)</b></p>
+		<table>
+			<tr>
+				<td>к<span style="color: #4B86C2;">(о&nbsp;|&nbsp;и)</span>т</td>
+			</tr>
+			<tr>
+				<td>
+					<span style="color: #4B86C2;">кот</span>овый
+					<br />
+					<span style="color: #4B86C2;">кит</span>овый
+				</td>
+			</tr>
+		</table>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2 style="font-size: 100px;">Группировка определяет область действия<br /> и приоритет</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Квантификация</h2>
+		<p>Определяется символами <b>{</b> и <b>}</b></p>
+		<table>
+			<tr>
+				<td>к<span style="color: #4B86C2;">(о&nbsp;|&nbsp;и){0,1}</span>т</td>
+				<td>к<span style="color: #4B86C2;">(о&nbsp;|&nbsp;и){1,2}</span>т</td>
+			</tr>
+			<tr>
+				<td>
+					<span style="color: #4B86C2;">кот</span>овый
+					<br />
+					<span style="color: #4B86C2;">кит</span>овый
+				</td>
+				<td>
+					<span style="color: #4B86C2;">коот</span>овый
+					<br />
+					китовый
+				</td>
+			</tr>
+		</table>
+	</div></section>
+
+
+
+	<section class="slide"><div>
+		<h2>Различают</h2>
+		<ul>
+			<li>Традиционные регулярные выражения</li>
+			<li>Расширенные регулярные выражения (в POSIX)<br /><span style="font-size: 15px;">POSIX=portable operating system interface for Unix</span></li>
+			<li>Perl-совместимые регулярные выражения (PCRE)</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>PCRE</h2>
+	</div></section>	
+
+	<section class="slide shout"><div>
+		<h2>Спецсимволы</h2>
+	</div></section>	
+
+	<section class="slide"><div>
+		<h2>Начало строки</h2>
+		<p>Определяется спецсимволом <b>^</b></p>
+		<table>
+			<tr>
+				<td><span style="color: #4B86C2;">^</span>баба</td>
+				<td><span style="color: #4B86C2;">^</span>кiт</td>
+			</tr>
+			<tr>
+				<td>
+					<span style="color: #4B86C2;">баба</span> i кiт<br />
+					кiт i баба
+				</td>
+				<td>
+					баба i кiт<br />
+					<span style="color: #4B86C2;">кiт</span> i баба<br />
+					<span style="color: #4B86C2;">кiт</span><br />
+					терракiтовый<br />
+				</td>
+			</tr>
+		</table>
+	</div></section>
+
+
+	<section class="slide"><div>
+		<h2>Конец строки строки</h2>
+		<p>Определяется спецсимволом <b>$</b></p>
+		<table>
+			<tr>
+				<td>баба<span style="color: #4B86C2;">$</span></td>
+				<td>кiт<span style="color: #4B86C2;">$</span></td>
+			</tr>
+			<tr>
+				<td>
+					баба i кiт<br />
+					кiт i <span style="color: #4B86C2;">баба</span>
+				</td>
+				<td>
+					баба i <span style="color: #4B86C2;">кiт</span><br />
+					кiт i баба<br />
+					<span style="color: #4B86C2;">кiт</span><br />
+					терракiтовый<br />
+				</td>
+			</tr>
+		</table>
+	</div></section>
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	<section class="slide shout"><div>
+		<h2>Спасибо!</h2>
+	</div></section>
+
+
+
+	<p class="badge"><a href="https://github.com/shower/shower">Fork me on Github</a></p>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"><div></div></div>
+	<script src="shower-core/shower.min.js"></script>
+	<!-- Copyright © 2013 Yours Truly, Famous Inc. -->
+
+	
+</body>
+</html>
