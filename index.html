@@ -404,6 +404,63 @@
 		<h2>Регулярные выражения в javascript</h2>
 	</div></section>
 
+	<section class="slide shout"><div>
+		<h2>объект RegExp</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>RegExp</h2>
+		<ul>
+			<li>реализован отдельным объектом</li>
+			<li>интегрирован в объект строки</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Реализация методов</h2>
+		<ul>
+			<li>String.search(expression)</li>
+			<li>String.match(expression)</li>
+			<li>String.split(expression)</li>
+			<li>String.replace(expression, string)</li>
+			<li>RegExp.test(string)</li>
+			<li>RegExp.exec(string)</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Способы задания регулярного выражения</h2>
+		<pre>
+			<code>var regexp = new RegExp("шаблон", "флаги");</code>
+			<code>var regexp = /шаблон/; // без флагов</code>
+			<code>var regexp = /шаблон/gmi; // с флагами</code>
+		</pre>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Флаги</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Реализация регулярных выражений в javascript имеет всего три флага:</h2>
+		<table>
+			<tr>
+				<td>i</td>
+				<td>– регистронезависимый поиск</td>
+			</tr>
+			<tr>
+				<td>g</td>
+				<td>– поиск всех совпадений</td>
+			</tr>
+			<tr>
+				<td>m</td>
+				<td>– многостроковый поиск</td>
+			</tr>
+		</table>
+	</div></section>
+
+
+
 	
 
 
