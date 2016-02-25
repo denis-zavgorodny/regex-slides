@@ -14,6 +14,7 @@
 		-->
 	<header class="caption">
 		<h1>regex-adventure</h1>
+		<p>Denis Zavgorodny</p>
 	</header>
 
 	<section class="slide shout"><div>
@@ -465,17 +466,159 @@
 			<img src="images/comic.png" width="100%">
 		</center>
 	</div></section>
+    
+    <section class="slide shout"><div>
+		<center style="margin: 0;">
+			<h2>Немного примеров</h2>
+		</center>
+	</div></section>
 
+	<section class="slide shout"><div>
+		<center style="margin: 0;">
+			<h2>Раздеть число<br />с размерностью</h2>
+		</center>
+	</div></section>
 
+	<section class="slide shout"><div>
+		<center style="margin: 0;">
+			<h2><span style="color: #4B86C2;">10</span> <span style="color: #4B86C2;">000,23</span> грн</h2>
+		</center>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<center style="margin: 0;">
+			<h2><span style="color: #4B86C2;">[</span><span style="color: red;">^</span>0-9,\.\-<span style="color: #4B86C2;">]</span></h2>
+		</center>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Раздеваем строку</h2>
+		<pre>
+			<code>var price = "10 000,23 грн"; // string</code>
+			<code>var strip = price.replace(/[^0-9,\.\-]/g, "");</code>
+			<code>//string 10 000,23</code>
+			<code>strip = price.replace(",", ".");</code>
+			<code>var realPrice = parseFloat(strip);</code>
+		</pre>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<center style="margin: 0;">
+			<h2>Найти подстроку</h2>
+		</center>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>URL /category/subdivision/subclass/<span style="color: #4B86C2;">item_99</span>.html</h2>
+		<ul>
+			<li>может содержать ...</li>
+			
+				<ul>
+			        <li>латинские буквы</li>
+			        <li>арабские цифры</li>
+					<li>тире</li>		
+					<li>нижнее подчеркивание</li>		
+				</ul>
+		</ul>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<center style="margin: 0;">
+			<h2><span style="color: #4B86C2;">[</span>a-z0-9_-<span style="color: #4B86C2;">]</span></h2>
+		</center>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>URL /<span style="color: red;">category</span>/<span style="color: red;">subdivision</span>/<span style="color: red;">subclass</span>/<span style="color: #4B86C2;">item_99</span>.html</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<center style="margin: 0;">
+			<h2><span style="color: #4B86C2;">[</span>a-z0-9_-<span style="color: #4B86C2;">]</span><span style="color: red;">.</span>html</h2>
+		</center>
+	</div></section>
+	<section class="slide shout"><div>
+		<center style="margin: 0;">
+			<h2><span style="color: #4B86C2;">[</span>a-z0-9_-<span style="color: #4B86C2;">]</span>\.html</h2>
+		</center>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>URL /<span style="color: red;">category</span>/<span style="color: red;">subdivision</span>/<span style="color: red;">subclass</span>/<span style="color: #4B86C2;">item_99</span>.htm</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>/<span style="color: red;">category</span>/<span style="color: red;">subdivision</span>/<span style="color: red;">subclass</span>/<span style="color: #4B86C2;">item_99</span>.htm(l)</h2>
+		<pre>
+			<code>[a-z0-9_-]</code>
+			<code>[a-z0-9_-].html</code>
+			<code>[a-z0-9_-]\.html</code>
+			<code>[a-z0-9_-]\.html|\.htm</code>
+			<code>[a-z0-9_-](\.html|\.htm)</code>
+			<code>([a-z0-9_-])(\.html|\.htm)</code>
+			<code>([a-z0-9_-]+)(\.html|\.htm)</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>/category/<span style="color: red;">subdivision.html</span>/subclass/<br><span style="color: #4B86C2;">item_99</span>.htm(l)</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>/<span style="color: red;">category</span>/<span style="color: red;">subdivision</span>/<span style="color: red;">subclass</span>/<span style="color: #4B86C2;">item_99</span>.htm(l)</h2>
+		<pre>
+			<code>([a-z0-9_-]+)(\.html|\.htm)</code>
+			<code>([a-z0-9_-]+)(\.html|\.htm)$</code>
+			<code>([a-z0-9_-]+)(?=\.html$|\.htm$)</code>
+		</pre>
+		<pre>
+			<code>regex.exec(string) //Array</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Почему?</h2>
+
+	    <pre>
+	    	<code>([a-z0-9_-]+)(?=\.html$|\.htm$)</code>
+	    </pre>
+	    <p>а не</p>
+	    <pre>
+	    	<code>([a-z0-9_-]+)(?=\.html|\.htm)$</code>
+	    </pre>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>заглядывание вперед не учитывается</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что вышло:</h2>
+		<pre>
+			<code>var str = "/category/subdivision.htmla/subclass/item_99.htm";</code>
+			<code>var regex = /([a-z0-9_-]+)(?=\.html$|\.htm$)/g;</code>
+			<code>console.log(str.match(regex));</code>
+			<code>// array ["item_99"]</code>
+		</pre>
+	</div></section>
 
 
 	<section class="slide shout"><div>
+		<center style="margin: 0;">
+			<h2><a href="https://www.regex101.com/">regex101.com</a></h2>
+		</center>
+	</div></section>
+
+
+	<section class="slide"><div>
 		<h2>Спасибо!</h2>
+		<h3>Завгородний Денис</h3>
+		<a href="https://www.facebook.com/denis.zavgorodny">https://www.facebook.com/denis.zavgorodny</a>
 	</div></section>
 
 
 
-	<p class="badge"><a href="https://github.com/shower/shower">Fork me on Github</a></p>
+
 	<!--
 		To hide progress bar from entire presentation
 		just remove “progress” element.
